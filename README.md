@@ -2,10 +2,7 @@
 
 This repository contains all the code examples and projects from the *Python Projects for Beginners* course. Each project is designed to help you sharpen your problem-solving skills and reinforce your understanding of Python.
 
-To get started, you can check out the first hour on my YouTube channel or dive even deeper with the complete course on my website.
-
-YouTube Channel:
-https://www.youtube.com/c/programmingwithmosh
+Every solution is the same name as the problem with attempt appended to the name.
 
 Website:
 https://codewithmosh.com
