@@ -36,7 +36,7 @@ def view_task(myList):
 
 def add_task(myList):
     while True:
-        user_input = input("Enter new task: ")
+        user_input = input("Enter new task: ").strip()
         if user_input == '' or user_input == " ":
             print("Invalid task")
             continue
