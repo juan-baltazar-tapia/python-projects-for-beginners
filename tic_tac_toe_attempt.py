@@ -1,7 +1,3 @@
-#Player X's turn
-#Enter row (0-2):
-#Enter columns (0-2):
-#Player O's turn
 MOVES = [[],[],[]]
 LINE = '---+---+---'
 board = [
