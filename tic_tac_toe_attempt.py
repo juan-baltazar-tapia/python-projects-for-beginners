@@ -1,4 +1,3 @@
-MOVES = [[],[],[]]
 LINE = '---+---+---'
 board = [
   [0,0,0],
@@ -46,7 +45,7 @@ def check_for_tie(b):
                 return False
     return True
 
-
+#TIC TAC TOE
 def main():
     turn = 0
     while True:
