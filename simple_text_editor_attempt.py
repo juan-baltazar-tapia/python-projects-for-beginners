@@ -2,13 +2,13 @@ from pathlib import Path
 
 
 def valid_file_name(user_input):
-    return not (user_input.find('/') and user_input[-4:] != '.txt')
+    return '/' not in user_input and user_input.endswith('.txt')
     
 def get_user_content(file_name):
     print("Enter your text (type SAVE on a new line to save and exit):")
     content = ''
     while True:
-        line = input().strip()
+        line = input()
         if line == "SAVE":
             break
         content += line + '\n'
@@ -29,6 +29,9 @@ def get_user_input():
 def write_or_edit_file(file_name, txt_files):
     if Path(file_name) in txt_files:
         print(display_content(file_name))
+        choice = input("File exists. (e)dit / (q)uit: ").strip().lower()
+        if choice == 'q':
+            return
     content = get_user_content(file_name)
     Path(file_name).write_text(content)
      
@@ -36,7 +39,6 @@ def main():
     file_name = get_user_input()
     txt_files = list(Path('.').glob('*.txt'))
     write_or_edit_file(file_name, txt_files)
-
 
 if __name__ == '__main__':
     main()
