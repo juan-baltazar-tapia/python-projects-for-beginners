@@ -59,18 +59,18 @@ def make_password(length, options):
         if option == True:
             choices += 1
 
-    password = "".join(secrets.choices(string.ascii_lowercase, k=length))
+    password = "".join(secrets.choice(string.ascii_lowercase) for _ in range(length))
 
     # choose random # of indexes for each chosen option
     indices = []
     taken_indices = set()
     for i in range(len(options)):
-        number_of_indices = random.randint(1, math.floor(length / 4))
+        number_of_indices = secrets.randbelow(0, math.floor(length / 4))
 
         curr = []
         for i in range(number_of_indices):
             while True:
-                number = random.randint(1, length - 1)
+                number = secrets.randbelow(0, length - 1)
                 if number not in taken_indices:
                     curr.append(number)
                     taken_indices.add(number)
@@ -84,7 +84,9 @@ def make_password(length, options):
             )
     if options[1]:
         for i in range(len(indices[1])):
-            password = replace_at(password, indices[1][i], secrets.choice(string.digits))
+            password = replace_at(
+                password, indices[1][i], secrets.choice(string.digits)
+            )
     if options[2]:
         for i in range(len(indices[2])):
             password = replace_at(
