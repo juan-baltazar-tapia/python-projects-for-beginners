@@ -65,12 +65,12 @@ def make_password(length, options):
     indices = []
     taken_indices = set()
     for i in range(len(options)):
-        number_of_indices = secrets.randbelow(0, math.floor(length / 4))
+        number_of_indices = secrets.randbelow(math.floor(length / 4))
 
         curr = []
         for i in range(number_of_indices):
             while True:
-                number = secrets.randbelow(0, length - 1)
+                number = secrets.randbelow(length - 1)
                 if number not in taken_indices:
                     curr.append(number)
                     taken_indices.add(number)
